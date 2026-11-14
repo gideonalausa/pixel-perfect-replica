@@ -7,7 +7,12 @@ import { cn } from "@/lib/utils";
 /** Miniature animated workflow used on project cards. */
 export function MiniWorkflow({ steps, className }: { steps: WorkflowStep[]; className?: string }) {
   return (
-    <div className={cn("relative overflow-hidden rounded-xl border border-border bg-background/60 px-4 py-6", className)}>
+    <div
+      className={cn(
+        "relative overflow-hidden rounded-xl border border-border bg-background/60 px-4 py-6",
+        className,
+      )}
+    >
       <div className="grid-backdrop absolute inset-0" aria-hidden="true" />
       <div className="relative flex items-start">
         {steps.map((step, i) => (
@@ -22,7 +27,9 @@ export function MiniWorkflow({ steps, className }: { steps: WorkflowStep[]; clas
               >
                 <ToolIcon name={step.tool ?? step.label} className="size-4.5" />
               </div>
-              <span className="mt-2 text-[0.65rem] leading-tight text-muted-foreground">{step.label}</span>
+              <span className="mt-2 text-[0.65rem] leading-tight text-muted-foreground">
+                {step.label}
+              </span>
             </div>
             {i < steps.length - 1 && <Connector delay={i * 0.6} />}
           </Fragment>
@@ -48,7 +55,10 @@ export function FullWorkflow({ steps }: { steps: WorkflowStep[] }) {
   return (
     <ol className="relative grid gap-4 md:grid-cols-4 md:gap-0">
       {steps.map((step, i) => (
-        <li key={step.label} className="relative flex gap-4 md:flex-col md:items-center md:px-3 md:text-center">
+        <li
+          key={step.label}
+          className="relative flex gap-4 md:flex-col md:items-center md:px-3 md:text-center"
+        >
           {/* connectors */}
           {i < steps.length - 1 && (
             <>
@@ -65,7 +75,9 @@ export function FullWorkflow({ steps }: { steps: WorkflowStep[] }) {
             <ToolIcon name={step.tool ?? step.label} className="size-5" />
           </div>
           <div className="pb-4 md:mt-4 md:pb-0">
-            <p className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-cyan">Step {i + 1}</p>
+            <p className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-cyan">
+              Step {i + 1}
+            </p>
             <p className="mt-1 font-display font-semibold">{step.label}</p>
             <p className="mt-1 text-sm text-muted-foreground">{step.detail}</p>
             {step.tool && <p className="mt-2 font-mono text-xs text-foreground/60">{step.tool}</p>}

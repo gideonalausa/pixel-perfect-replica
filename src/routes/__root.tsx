@@ -84,14 +84,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Gideon Alausa — AI Automation Developer" },
       {
         name: "description",
-        content: "AI agents, workflow automation, CRM systems and lead generation for growing businesses.",
+        content:
+          "AI agents, workflow automation, CRM systems and lead generation for growing businesses.",
       },
       { name: "author", content: "Gideon Alausa" },
       { property: "og:site_name", content: "Gideon Alausa" },
       { property: "og:title", content: "Gideon Alausa — AI Automation Developer" },
       {
         property: "og:description",
-        content: "AI agents, workflow automation, CRM systems and lead generation for growing businesses.",
+        content:
+          "AI agents, workflow automation, CRM systems and lead generation for growing businesses.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -108,6 +110,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
     ],
   }),
   shellComponent: RootShell,

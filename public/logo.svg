@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 64">
+  <defs><linearGradient id="g" x1="10" y1="10" x2="54" y2="54" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#5ee0f5"/><stop offset=".55" stop-color="#3b8cff"/><stop offset="1" stop-color="#9a6bff"/></linearGradient></defs>
+  <rect width="64" height="64" rx="16" fill="#0d1424"/>
+  <path d="M42.37 20.48 A15.5 15.5 0 1 0 47.50 32.00 H33" fill="none" stroke="url(#g)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="47.57" cy="14.88" r="3.4" fill="#5ee0f5"/>
+  <text x="80" y="31" font-family="Geist, Inter, Helvetica, Arial, sans-serif" font-weight="600" font-size="24" letter-spacing="-.6" fill="#f2f5fa">Gideon Alausa</text>
+  <text x="81" y="52" font-family="'Geist Mono', ui-monospace, Menlo, monospace" font-size="11" letter-spacing="3" fill="#9aa6bd">AI AUTOMATION</text>
+</svg>

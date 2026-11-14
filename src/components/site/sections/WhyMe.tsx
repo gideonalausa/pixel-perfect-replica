@@ -7,7 +7,7 @@ const icons = [Lightbulb, Wrench, ShieldCheck, Handshake];
 
 export function WhyMe() {
   return (
-    <section id="why" className="relative py-24 sm:py-32">
+    <section id="why" className="relative py-16 sm:py-24 lg:py-32">
       <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
         <Reveal className="lg:sticky lg:top-28 lg:self-start">
           <p className="eyebrow">Why work with me</p>
@@ -19,7 +19,8 @@ export function WhyMe() {
             business works and building technology that makes its operations more efficient.
           </p>
           <p className="mt-4 text-base leading-relaxed text-foreground/85 sm:text-lg">
-            I focus on solutions that are practical, maintainable, and aligned with real business needs.
+            I focus on solutions that are practical, maintainable, and aligned with real business
+            needs.
           </p>
         </Reveal>
 

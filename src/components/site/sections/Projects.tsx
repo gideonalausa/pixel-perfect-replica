@@ -8,7 +8,10 @@ import { projects } from "@/content/site";
 
 export function Projects() {
   return (
-    <section id="projects" className="relative border-y border-border bg-surface/40 py-24 sm:py-32">
+    <section
+      id="projects"
+      className="relative border-y border-border bg-surface/40 py-16 sm:py-24 lg:py-32"
+    >
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="Portfolio"
@@ -16,7 +19,7 @@ export function Projects() {
           subtitle="A closer look at the types of intelligent systems I design and develop."
         />
 
-        <div className="mt-16 grid gap-6 lg:grid-cols-2">
+        <div className="mt-10 grid sm:mt-16 gap-6 lg:grid-cols-2">
           {projects.map((project, i) => (
             <Reveal
               key={project.slug}
@@ -25,7 +28,9 @@ export function Projects() {
               className="surface-card surface-card-interactive group flex flex-col p-6 sm:p-8"
             >
               <div className="flex flex-wrap items-center justify-between gap-3">
-                <span className="font-mono text-sm text-muted-foreground">Project {project.number}</span>
+                <span className="font-mono text-sm text-muted-foreground">
+                  Project {project.number}
+                </span>
                 <StatusBadge status={project.status} />
               </div>
 
@@ -37,11 +42,16 @@ export function Projects() {
               <h3 className="mt-2 font-display text-xl font-semibold tracking-tight sm:text-2xl">
                 {project.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{project.overview}</p>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                {project.overview}
+              </p>
 
               <ul className="mt-5 flex flex-wrap gap-1.5">
                 {project.features.slice(0, 4).map((f) => (
-                  <li key={f} className="rounded-md bg-surface-raised px-2 py-1 text-xs text-foreground/75">
+                  <li
+                    key={f}
+                    className="rounded-md bg-surface-raised px-2 py-1 text-xs text-foreground/75"
+                  >
                     {f}
                   </li>
                 ))}

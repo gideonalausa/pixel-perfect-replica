@@ -116,12 +116,24 @@
   --sidebar-ring: oklch(0.68 0.19 254);
 
   --gradient-brand: linear-gradient(115deg, var(--cyan) 0%, var(--primary) 48%, var(--violet) 100%);
-  --gradient-text: linear-gradient(100deg, var(--foreground) 10%, var(--cyan) 55%, var(--primary) 80%, var(--violet) 100%);
-  --gradient-card: linear-gradient(160deg, oklch(0.21 0.035 262 / 0.9), oklch(0.16 0.024 262 / 0.9));
-  --gradient-cta: radial-gradient(120% 140% at 0% 0%, oklch(0.68 0.19 254 / 0.35), transparent 55%),
+  --gradient-text: linear-gradient(
+    100deg,
+    var(--foreground) 10%,
+    var(--cyan) 55%,
+    var(--primary) 80%,
+    var(--violet) 100%
+  );
+  --gradient-card: linear-gradient(
+    160deg,
+    oklch(0.21 0.035 262 / 0.9),
+    oklch(0.16 0.024 262 / 0.9)
+  );
+  --gradient-cta:
+    radial-gradient(120% 140% at 0% 0%, oklch(0.68 0.19 254 / 0.35), transparent 55%),
     radial-gradient(100% 120% at 100% 100%, oklch(0.66 0.19 295 / 0.32), transparent 55%),
     linear-gradient(180deg, oklch(0.19 0.035 262), oklch(0.16 0.03 262));
-  --glow-primary: 0 0 0 1px oklch(0.68 0.19 254 / 0.35), 0 12px 40px -12px oklch(0.68 0.19 254 / 0.55);
+  --glow-primary:
+    0 0 0 1px oklch(0.68 0.19 254 / 0.35), 0 12px 40px -12px oklch(0.68 0.19 254 / 0.55);
   --glow-soft: 0 30px 80px -40px oklch(0.68 0.19 254 / 0.45);
   --shadow-card: 0 1px 0 0 oklch(1 0 0 / 0.04) inset, 0 20px 50px -30px oklch(0 0 0 / 0.7);
 }
@@ -144,6 +156,7 @@
   }
 
   body {
+    overflow-x: clip;
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);

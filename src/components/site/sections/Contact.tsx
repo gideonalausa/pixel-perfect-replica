@@ -1,6 +1,13 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { getRouteApi } from "@tanstack/react-router";
-import { ArrowRight, CheckCircle2, Loader2, MessageSquareText, PhoneCall, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  Loader2,
+  MessageSquareText,
+  PhoneCall,
+  Sparkles,
+} from "lucide-react";
 import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 
@@ -9,7 +16,13 @@ import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { budgetOptions, serviceOptions } from "@/content/site";
 import { supabase } from "@/integrations/supabase/client";
@@ -19,9 +32,21 @@ import { cn } from "@/lib/utils";
 const routeApi = getRouteApi("/");
 
 const nextSteps = [
-  { icon: MessageSquareText, title: "Share your challenge", text: "Tell me what you'd like to automate or improve." },
-  { icon: PhoneCall, title: "Discovery conversation", text: "We talk through your processes and goals." },
-  { icon: Sparkles, title: "Practical proposal", text: "You get a clear plan for a solution that fits." },
+  {
+    icon: MessageSquareText,
+    title: "Share your challenge",
+    text: "Tell me what you'd like to automate or improve.",
+  },
+  {
+    icon: PhoneCall,
+    title: "Discovery conversation",
+    text: "We talk through your processes and goals.",
+  },
+  {
+    icon: Sparkles,
+    title: "Practical proposal",
+    text: "You get a clear plan for a solution that fits.",
+  },
 ];
 
 export function Contact() {
@@ -31,7 +56,14 @@ export function Contact() {
 
   const form = useForm<InquiryInput, unknown, InquiryData>({
     resolver: zodResolver(inquirySchema),
-    defaultValues: { fullName: "", email: "", company: "", service: "", budget: "", description: "" },
+    defaultValues: {
+      fullName: "",
+      email: "",
+      company: "",
+      service: "",
+      budget: "",
+      description: "",
+    },
     mode: "onTouched",
   });
   const { register, control, handleSubmit, formState, setValue, reset } = form;
@@ -47,7 +79,9 @@ export function Contact() {
     setServerError(null);
     const { error } = await supabase.from("project_inquiries").insert(toInquiryRow(data));
     if (error) {
-      setServerError("Something went wrong while sending your inquiry. Please try again in a moment.");
+      setServerError(
+        "Something went wrong while sending your inquiry. Please try again in a moment.",
+      );
       return;
     }
     setSubmitted(data.fullName.split(" ")[0] ?? data.fullName);
@@ -57,7 +91,7 @@ export function Contact() {
   const links = configuredLinks();
 
   return (
-    <section id="contact" className="relative py-24 sm:py-32">
+    <section id="contact" className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
       <div className="glow-orb bottom-0 left-1/4 size-[28rem] bg-primary/15" aria-hidden="true" />
       <div className="relative mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <Reveal>
@@ -89,7 +123,9 @@ export function Contact() {
 
           {links.length > 0 && (
             <div className="mt-10">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Find me on</p>
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                Find me on
+              </p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {links.map((l) => (
                   <a
@@ -110,7 +146,10 @@ export function Contact() {
 
         <Reveal delay={120} className="surface-card p-6 sm:p-9">
           {submitted ? (
-            <div role="status" className="flex min-h-[28rem] flex-col items-center justify-center text-center">
+            <div
+              role="status"
+              className="flex min-h-[28rem] flex-col items-center justify-center text-center"
+            >
               <div className="flex size-16 items-center justify-center rounded-full bg-success/15 text-success">
                 <CheckCircle2 className="size-8" aria-hidden="true" />
               </div>
@@ -119,33 +158,84 @@ export function Contact() {
                 Your project inquiry has been received. I'll review the details and get back to you
                 with next steps shortly.
               </p>
-              <Button variant="glass" size="pill" className="mt-8" onClick={() => setSubmitted(null)}>
+              <Button
+                variant="glass"
+                size="pill"
+                className="mt-8"
+                onClick={() => setSubmitted(null)}
+              >
                 Send another inquiry
               </Button>
             </div>
           ) : (
             <form onSubmit={handleSubmit(onSubmit)} noValidate className="grid gap-5">
               <div className="grid gap-5 sm:grid-cols-2">
-                <Field label="Full name" htmlFor="fullName" error={errors.fullName?.message} required>
-                  <Input id="fullName" autoComplete="name" placeholder="Jane Smith" aria-invalid={!!errors.fullName} {...register("fullName")} className={inputCls} />
+                <Field
+                  label="Full name"
+                  htmlFor="fullName"
+                  error={errors.fullName?.message}
+                  required
+                >
+                  <Input
+                    id="fullName"
+                    autoComplete="name"
+                    placeholder="Jane Smith"
+                    aria-invalid={!!errors.fullName}
+                    {...register("fullName")}
+                    className={inputCls}
+                  />
                 </Field>
-                <Field label="Business email" htmlFor="email" error={errors.email?.message} required>
-                  <Input id="email" type="email" autoComplete="email" placeholder="jane@company.com" aria-invalid={!!errors.email} {...register("email")} className={inputCls} />
+                <Field
+                  label="Business email"
+                  htmlFor="email"
+                  error={errors.email?.message}
+                  required
+                >
+                  <Input
+                    id="email"
+                    type="email"
+                    autoComplete="email"
+                    placeholder="jane@company.com"
+                    aria-invalid={!!errors.email}
+                    {...register("email")}
+                    className={inputCls}
+                  />
                 </Field>
               </div>
 
-              <Field label="Company name" htmlFor="company" error={errors.company?.message} optional>
-                <Input id="company" autoComplete="organization" placeholder="Company Ltd." {...register("company")} className={inputCls} />
+              <Field
+                label="Company name"
+                htmlFor="company"
+                error={errors.company?.message}
+                optional
+              >
+                <Input
+                  id="company"
+                  autoComplete="organization"
+                  placeholder="Company Ltd."
+                  {...register("company")}
+                  className={inputCls}
+                />
               </Field>
 
               <div className="grid gap-5 sm:grid-cols-2">
-                <Field label="Service interested in" htmlFor="service" error={errors.service?.message} required>
+                <Field
+                  label="Service interested in"
+                  htmlFor="service"
+                  error={errors.service?.message}
+                  required
+                >
                   <Controller
                     control={control}
                     name="service"
                     render={({ field }) => (
                       <Select value={field.value ?? ""} onValueChange={field.onChange}>
-                        <SelectTrigger id="service" aria-invalid={!!errors.service} onBlur={field.onBlur} className={inputCls}>
+                        <SelectTrigger
+                          id="service"
+                          aria-invalid={!!errors.service}
+                          onBlur={field.onBlur}
+                          className={inputCls}
+                        >
                           <SelectValue placeholder="Choose a service" />
                         </SelectTrigger>
                         <SelectContent>
@@ -159,7 +249,12 @@ export function Contact() {
                     )}
                   />
                 </Field>
-                <Field label="Estimated budget" htmlFor="budget" error={errors.budget?.message} optional>
+                <Field
+                  label="Estimated budget"
+                  htmlFor="budget"
+                  error={errors.budget?.message}
+                  optional
+                >
                   <Controller
                     control={control}
                     name="budget"
@@ -181,7 +276,12 @@ export function Contact() {
                 </Field>
               </div>
 
-              <Field label="Project description" htmlFor="description" error={errors.description?.message} required>
+              <Field
+                label="Project description"
+                htmlFor="description"
+                error={errors.description?.message}
+                required
+              >
                 <Textarea
                   id="description"
                   rows={6}
@@ -193,12 +293,21 @@ export function Contact() {
               </Field>
 
               {serverError && (
-                <p role="alert" className="rounded-xl border border-destructive/40 bg-destructive/10 px-4 py-3 text-sm text-destructive">
+                <p
+                  role="alert"
+                  className="rounded-xl border border-destructive/40 bg-destructive/10 px-4 py-3 text-sm text-destructive"
+                >
                   {serverError}
                 </p>
               )}
 
-              <Button type="submit" variant="hero" size="xl" disabled={isSubmitting} className="mt-1 w-full sm:w-auto sm:justify-self-start">
+              <Button
+                type="submit"
+                variant="hero"
+                size="xl"
+                disabled={isSubmitting}
+                className="mt-1 w-full sm:w-auto sm:justify-self-start"
+              >
                 {isSubmitting ? (
                   <>
                     <Loader2 className="animate-spin" /> Sending…

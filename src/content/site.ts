@@ -10,8 +10,10 @@ export const profile = {
   role: "AI Automation Developer",
   roles: ["AI Automation Developer", "AI Agent Builder", "Business Solutions"],
   footerTagline: "Building intelligent systems for businesses ready to work smarter.",
-  /** Set to an image URL to replace the portrait placeholder in the About section. */
-  portraitUrl: null as string | null,
+  /** Portrait in the About section. Set to null to show the logo placeholder instead. */
+  portraitUrl: "/images/gideon-portrait.webp" as string | null,
+  /** Small round photo next to the greeting in the hero. Set to null to hide it. */
+  avatarUrl: "/images/gideon-avatar.webp" as string | null,
   availability:
     "Available for freelance projects, ongoing collaborations, and custom AI automation solutions.",
 };
@@ -201,8 +203,16 @@ export const projects: Project[] = [
       "A conversational AI voice agent that answers calls, understands what the caller needs, collects their details, books appointments directly into the calendar, and escalates urgent matters to a human. Every call is summarized and shared with the team automatically.",
     workflow: [
       { label: "Incoming call", detail: "Caller reaches the agency number", tool: "Vapi" },
-      { label: "AI conversation", detail: "Agent identifies intent and answers questions", tool: "OpenAI" },
-      { label: "Book or transfer", detail: "Schedules viewings or routes urgent calls", tool: "Google Calendar" },
+      {
+        label: "AI conversation",
+        detail: "Agent identifies intent and answers questions",
+        tool: "OpenAI",
+      },
+      {
+        label: "Book or transfer",
+        detail: "Schedules viewings or routes urgent calls",
+        tool: "Google Calendar",
+      },
       { label: "Summary & CRM", detail: "Caller details logged and summary sent", tool: "n8n" },
     ],
     features: [
@@ -242,8 +252,16 @@ export const projects: Project[] = [
     workflow: [
       { label: "Customer calls", detail: "Inquiry about a roofing issue", tool: "Vapi" },
       { label: "Qualify need", detail: "AI captures property and issue details", tool: "OpenAI" },
-      { label: "Offer inspection", detail: "Finds an open slot for a technician", tool: "Google Calendar" },
-      { label: "Notify team", detail: "Booking confirmations sent automatically", tool: "Make.com" },
+      {
+        label: "Offer inspection",
+        detail: "Finds an open slot for a technician",
+        tool: "Google Calendar",
+      },
+      {
+        label: "Notify team",
+        detail: "Booking confirmations sent automatically",
+        tool: "Make.com",
+      },
     ],
     features: [
       "Natural AI call conversations",
@@ -282,7 +300,11 @@ export const projects: Project[] = [
       "An end-to-end pipeline that discovers businesses matching a target profile, extracts and cleans contact data, uses AI to evaluate fit and draft personalized emails, and runs follow-up sequences from a single centralized lead database.",
     workflow: [
       { label: "Discover", detail: "Find businesses matching the target profile", tool: "Apify" },
-      { label: "Clean & store", detail: "Deduplicate and organize contacts", tool: "Google Sheets" },
+      {
+        label: "Clean & store",
+        detail: "Deduplicate and organize contacts",
+        tool: "Google Sheets",
+      },
       { label: "AI evaluation", detail: "Score fit and draft personalized emails", tool: "OpenAI" },
       { label: "Outreach", detail: "Send emails and automated follow-ups", tool: "n8n" },
     ],
@@ -321,8 +343,16 @@ export const projects: Project[] = [
     solution:
       "An automated pipeline that processes the data, applies scoring and normalization, compares baseline and progress results, renders dynamic charts into HTML templates, and generates finished PDF reports at both individual and group level.",
     workflow: [
-      { label: "Collect data", detail: "Assessment responses are gathered", tool: "Automation Tools" },
-      { label: "Score & compare", detail: "Normalize and compare baseline vs progress", tool: "JavaScript" },
+      {
+        label: "Collect data",
+        detail: "Assessment responses are gathered",
+        tool: "Automation Tools",
+      },
+      {
+        label: "Score & compare",
+        detail: "Normalize and compare baseline vs progress",
+        tool: "JavaScript",
+      },
       { label: "Visualize", detail: "Render dynamic charts into templates", tool: "Chart.js" },
       { label: "Generate PDF", detail: "Produce individual and group reports", tool: "PDF.co" },
     ],
@@ -362,7 +392,11 @@ export const projects: Project[] = [
       "A connected reservation system where online bookings, AI chatbot inquiries, and AI phone bookings all flow into one central CRM, with automatic confirmations, reminders, and real-time reservation status tracking.",
     workflow: [
       { label: "Booking request", detail: "Via website, chat, or phone", tool: "AI Voice APIs" },
-      { label: "Check availability", detail: "Matches requests to open slots", tool: "Calendar Integrations" },
+      {
+        label: "Check availability",
+        detail: "Matches requests to open slots",
+        tool: "Calendar Integrations",
+      },
       { label: "Central CRM", detail: "Reservation recorded in one place", tool: "CRM" },
       { label: "Confirm & remind", detail: "Automated confirmations and reminders", tool: "n8n" },
     ],
@@ -402,7 +436,11 @@ export const projects: Project[] = [
     solution:
       "Scheduled workflows that take structured product data, use AI to help generate content, prepare listings in the right format, and push them to external platforms through APIs.",
     workflow: [
-      { label: "Product data", detail: "Structured catalog info in a sheet", tool: "Google Sheets" },
+      {
+        label: "Product data",
+        detail: "Structured catalog info in a sheet",
+        tool: "Google Sheets",
+      },
       { label: "AI content", detail: "Descriptions and copy drafted with AI", tool: "OpenAI" },
       { label: "Prepare listing", detail: "Format data for each platform", tool: "Make.com" },
       { label: "Publish", detail: "Sync to external platforms via API", tool: "REST APIs" },

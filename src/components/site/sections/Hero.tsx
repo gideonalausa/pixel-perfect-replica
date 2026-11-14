@@ -5,6 +5,7 @@ import { ToolIcon } from "@/components/brand/ToolIcon";
 import { HeroVisual } from "@/components/site/HeroVisual";
 import { Reveal } from "@/components/site/Reveal";
 import { Button } from "@/components/ui/button";
+import { profile } from "@/content/site";
 
 const marqueeTools = [
   "n8n",
@@ -25,14 +26,30 @@ export function Hero() {
   return (
     <section id="home" className="relative overflow-hidden pt-28 pb-16 sm:pt-32 lg:pt-36">
       <div className="grid-backdrop absolute inset-0" aria-hidden="true" />
-      <div className="glow-orb -top-40 left-1/2 h-[480px] w-[720px] -translate-x-1/2 bg-primary/20" aria-hidden="true" />
+      <div
+        className="glow-orb -top-40 left-1/2 h-[480px] w-[720px] -translate-x-1/2 bg-primary/20"
+        aria-hidden="true"
+      />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1.1fr_1fr] lg:gap-10">
         <div>
           <Reveal immediate>
-            <p className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 px-3 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-cyan backdrop-blur">
-              <span className="size-1.5 rounded-full bg-success" />
-              Hello, I'm Gideon Alausa
+            <p className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface/70 py-1.5 pr-4 pl-1.5 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-cyan backdrop-blur">
+              {profile.avatarUrl ? (
+                <span className="relative shrink-0">
+                  <img
+                    src={profile.avatarUrl}
+                    alt=""
+                    width={32}
+                    height={32}
+                    className="size-8 rounded-full object-cover ring-1 ring-border"
+                  />
+                  <span className="absolute -right-0.5 -bottom-0.5 size-2.5 rounded-full border-2 border-background bg-success" />
+                </span>
+              ) : (
+                <span className="ml-1.5 size-1.5 rounded-full bg-success" />
+              )}
+              Hello, I'm {profile.name}
             </p>
           </Reveal>
           <Reveal immediate delay={80}>

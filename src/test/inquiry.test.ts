@@ -15,7 +15,11 @@ describe("project inquiry form rules", () => {
   it("accepts a complete inquiry and treats empty optional fields as missing", () => {
     const result = inquirySchema.parse(valid);
     expect(result.company).toBeUndefined();
-    expect(toInquiryRow(result)).toMatchObject({ company: null, budget: null, full_name: "Jane Smith" });
+    expect(toInquiryRow(result)).toMatchObject({
+      company: null,
+      budget: null,
+      full_name: "Jane Smith",
+    });
   });
 
   it("requires a valid business email", () => {

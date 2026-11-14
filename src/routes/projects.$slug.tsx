@@ -20,7 +20,12 @@ export const Route = createFileRoute("/projects/$slug")({
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Project unavailable — Gideon Alausa" }, { name: "robots", content: "noindex" }] };
+      return {
+        meta: [
+          { title: "Project unavailable — Gideon Alausa" },
+          { name: "robots", content: "noindex" },
+        ],
+      };
     }
     const { project } = loaderData;
     const title = `${project.title} — Case Study | Gideon Alausa`;
@@ -51,7 +56,10 @@ function CaseStudy() {
         {/* Intro */}
         <section className="relative overflow-hidden pt-28 pb-16 sm:pt-36">
           <div className="grid-backdrop absolute inset-0" aria-hidden="true" />
-          <div className="glow-orb -top-32 left-1/2 h-96 w-[640px] -translate-x-1/2 bg-primary/20" aria-hidden="true" />
+          <div
+            className="glow-orb -top-32 left-1/2 h-96 w-[640px] -translate-x-1/2 bg-primary/20"
+            aria-hidden="true"
+          />
           <div className="relative mx-auto max-w-5xl px-5 sm:px-8">
             <Link
               to="/"
@@ -62,14 +70,20 @@ function CaseStudy() {
             </Link>
             <Reveal immediate className="mt-8">
               <div className="flex flex-wrap items-center gap-3">
-                <span className="font-mono text-sm text-muted-foreground">Project {project.number}</span>
+                <span className="font-mono text-sm text-muted-foreground">
+                  Project {project.number}
+                </span>
                 <StatusBadge status={project.status} />
               </div>
-              <p className="mt-6 font-mono text-xs uppercase tracking-[0.18em] text-cyan">{project.category}</p>
+              <p className="mt-6 font-mono text-xs uppercase tracking-[0.18em] text-cyan">
+                {project.category}
+              </p>
               <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-balance sm:text-5xl lg:text-6xl">
                 {project.title}
               </h1>
-              <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">{project.overview}</p>
+              <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">
+                {project.overview}
+              </p>
               <div className="mt-8 flex flex-wrap gap-1.5">
                 {project.technology.map((t) => (
                   <ToolChip key={t} name={t} />
@@ -89,7 +103,9 @@ function CaseStudy() {
           <Reveal delay={100} className="surface-card p-7 sm:p-8">
             <Lightbulb className="size-6 text-primary" aria-hidden="true" />
             <h2 className="mt-4 font-display text-xl font-semibold">
-              {project.status === "Client Project" ? "The implemented solution" : "The proposed solution"}
+              {project.status === "Client Project"
+                ? "The implemented solution"
+                : "The proposed solution"}
             </h2>
             <p className="mt-3 leading-relaxed text-muted-foreground">{project.solution}</p>
           </Reveal>
@@ -99,7 +115,9 @@ function CaseStudy() {
         <section className="mx-auto max-w-5xl px-5 py-20 sm:px-8">
           <Reveal>
             <p className="eyebrow">Automation workflow</p>
-            <h2 className="mt-3 font-display text-2xl font-semibold tracking-tight sm:text-3xl">How the system flows</h2>
+            <h2 className="mt-3 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+              How the system flows
+            </h2>
           </Reveal>
           <Reveal delay={100} className="surface-card mt-10 p-6 sm:p-10">
             <FullWorkflow steps={project.workflow} />
@@ -112,7 +130,10 @@ function CaseStudy() {
             <p className="eyebrow">Main features</p>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {project.features.map((f) => (
-                <li key={f} className="flex items-start gap-3 rounded-xl border border-border bg-surface/60 px-4 py-3 text-sm">
+                <li
+                  key={f}
+                  className="flex items-start gap-3 rounded-xl border border-border bg-surface/60 px-4 py-3 text-sm"
+                >
                   <Check className="mt-0.5 size-4 shrink-0 text-cyan" aria-hidden="true" />
                   {f}
                 </li>
@@ -123,7 +144,10 @@ function CaseStudy() {
             <p className="eyebrow">Technology stack</p>
             <ul className="mt-6 grid gap-2">
               {project.technology.map((t) => (
-                <li key={t} className="flex items-center justify-between rounded-xl border border-border bg-surface/60 px-4 py-3 text-sm">
+                <li
+                  key={t}
+                  className="flex items-center justify-between rounded-xl border border-border bg-surface/60 px-4 py-3 text-sm"
+                >
                   {t}
                   <span className="size-1.5 rounded-full bg-primary" />
                 </li>
@@ -136,7 +160,9 @@ function CaseStudy() {
         <section className="mx-auto max-w-5xl px-5 py-20 sm:px-8">
           <Reveal className="surface-card p-7 sm:p-10">
             <TrendingUp className="size-6 text-success" aria-hidden="true" />
-            <h2 className="mt-4 font-display text-2xl font-semibold tracking-tight">Business benefits</h2>
+            <h2 className="mt-4 font-display text-2xl font-semibold tracking-tight">
+              Business benefits
+            </h2>
             <p className="mt-3 text-lg text-foreground/85">{project.businessValue}</p>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2">
               {project.benefits.map((b) => (
@@ -151,7 +177,9 @@ function CaseStudy() {
                 <p className="eyebrow">Results</p>
                 <ul className="mt-4 grid gap-3 sm:grid-cols-2">
                   {project.results.map((r) => (
-                    <li key={r} className="rounded-xl bg-surface-raised px-4 py-3 text-sm">{r}</li>
+                    <li key={r} className="rounded-xl bg-surface-raised px-4 py-3 text-sm">
+                      {r}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -168,7 +196,11 @@ function CaseStudy() {
             {project.demoVideoUrl && (
               <Reveal className="surface-card mt-6 overflow-hidden p-2">
                 {project.demoVideoUrl.endsWith(".mp4") ? (
-                  <video src={project.demoVideoUrl} controls className="aspect-video w-full rounded-xl" />
+                  <video
+                    src={project.demoVideoUrl}
+                    controls
+                    className="aspect-video w-full rounded-xl"
+                  />
                 ) : (
                   <iframe
                     src={project.demoVideoUrl}
@@ -185,7 +217,9 @@ function CaseStudy() {
                 {project.screenshots.map((s) => (
                   <Reveal key={s.src} as="figure" className="surface-card overflow-hidden p-2">
                     <img src={s.src} alt={s.caption} loading="lazy" className="w-full rounded-xl" />
-                    <figcaption className="px-2 py-3 text-sm text-muted-foreground">{s.caption}</figcaption>
+                    <figcaption className="px-2 py-3 text-sm text-muted-foreground">
+                      {s.caption}
+                    </figcaption>
                   </Reveal>
                 ))}
               </div>
@@ -221,7 +255,9 @@ function CaseStudy() {
             className="surface-card surface-card-interactive group flex items-center justify-between gap-6 p-6 sm:p-8"
           >
             <div>
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Next project</p>
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                Next project
+              </p>
               <p className="mt-2 font-display text-lg font-semibold sm:text-xl">{next.title}</p>
             </div>
             <ArrowRight className="size-5 shrink-0 text-primary transition-transform group-hover:translate-x-1" />
@@ -242,7 +278,9 @@ function ProjectNotFound() {
           <p className="eyebrow">Not found</p>
           <h1 className="mt-4 font-display text-3xl font-semibold">This project doesn't exist.</h1>
           <Button asChild variant="hero" size="pill" className="mt-8">
-            <Link to="/" hash="projects">See all projects</Link>
+            <Link to="/" hash="projects">
+              See all projects
+            </Link>
           </Button>
         </div>
       </main>

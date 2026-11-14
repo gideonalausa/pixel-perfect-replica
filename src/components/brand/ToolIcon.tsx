@@ -23,6 +23,7 @@ import {
 import { Braces, CalendarClock, FileText, Workflow, Webhook, Database, Phone } from "lucide-react";
 import type { ComponentType, SVGProps } from "react";
 
+import { extraIcons } from "@/components/brand/extra-icons";
 import { cn } from "@/lib/utils";
 
 type SimpleIcon = { path: string; title: string };
@@ -45,6 +46,9 @@ const brandIcons: Record<string, SimpleIcon> = {
   "make.com": siMake,
   n8n: siN8n,
   notion: siNotion,
+  openai: extraIcons.openai,
+  slack: extraIcons.slack,
+  twilio: extraIcons.twilio,
   "whatsapp business api": siWhatsapp,
   whatsapp: siWhatsapp,
   wordpress: siWordpress,
@@ -91,7 +95,7 @@ export function ToolIcon({ name, className }: { name: string; className?: string
     <span
       aria-hidden="true"
       className={cn(
-        "inline-flex size-5 items-center justify-center font-mono text-[0.62rem] font-bold leading-none tracking-tight",
+        "inline-flex size-5 items-center justify-center rounded-[0.3em] bg-foreground/10 font-mono text-[0.55rem] font-semibold leading-none tracking-tight",
         className,
       )}
     >

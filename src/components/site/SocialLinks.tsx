@@ -19,7 +19,10 @@ const meta: Record<LinkKey, { label: string; icon: ReactNode }> = {
   linkedin: { label: "LinkedIn", icon: <Linkedin className="size-4" aria-hidden="true" /> },
   github: { label: "GitHub", icon: <SiIcon path={siGithub.path} /> },
   email: { label: "Email", icon: <Mail className="size-4" aria-hidden="true" /> },
-  booking: { label: "Book a Discovery Call", icon: <CalendarCheck className="size-4" aria-hidden="true" /> },
+  booking: {
+    label: "Book a Discovery Call",
+    icon: <CalendarCheck className="size-4" aria-hidden="true" />,
+  },
 };
 
 export function hrefFor(key: LinkKey, value: string) {
@@ -27,7 +30,9 @@ export function hrefFor(key: LinkKey, value: string) {
 }
 
 /** Only links that have a real URL in src/content/site.ts are shown. */
-export function configuredLinks(keys: LinkKey[] = ["fiverr", "upwork", "linkedin", "github", "email", "booking"]) {
+export function configuredLinks(
+  keys: LinkKey[] = ["fiverr", "upwork", "linkedin", "github", "email", "booking"],
+) {
   return keys
     .filter((k) => Boolean(links[k]))
     .map((k) => ({ key: k, href: hrefFor(k, links[k] as string), ...meta[k] }));

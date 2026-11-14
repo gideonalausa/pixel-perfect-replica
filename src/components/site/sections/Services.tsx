@@ -1,5 +1,14 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, Bot, Check, MessagesSquare, Puzzle, Radar, Users, Workflow } from "lucide-react";
+import {
+  ArrowUpRight,
+  Bot,
+  Check,
+  MessagesSquare,
+  Puzzle,
+  Radar,
+  Users,
+  Workflow,
+} from "lucide-react";
 
 import { ToolChip } from "@/components/brand/ToolIcon";
 import { Reveal, SectionHeading } from "@/components/site/Reveal";
@@ -16,7 +25,7 @@ const icons: Record<ServiceIcon, typeof Bot> = {
 
 export function Services() {
   return (
-    <section id="services" className="relative py-24 sm:py-32">
+    <section id="services" className="relative py-16 sm:py-24 lg:py-32">
       <div className="glow-orb top-40 -left-40 size-96 bg-violet/15" aria-hidden="true" />
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
@@ -25,7 +34,7 @@ export function Services() {
           subtitle="From intelligent AI agents to fully connected business systems, I develop solutions that help teams work more efficiently."
         />
 
-        <div className="mt-16 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-10 grid sm:mt-16 gap-5 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service, i) => {
             const Icon = icons[service.icon];
             return (
@@ -33,7 +42,7 @@ export function Services() {
                 key={service.id}
                 delay={(i % 3) * 90}
                 as="article"
-                className="surface-card surface-card-interactive group flex flex-col p-7"
+                className="surface-card surface-card-interactive group flex flex-col p-6 sm:p-7"
               >
                 <div className="flex items-start justify-between">
                   <div className="relative flex size-12 items-center justify-center rounded-2xl bg-brand text-primary-foreground shadow-glow">
@@ -44,7 +53,9 @@ export function Services() {
                 <h3 className="mt-6 font-display text-xl font-semibold leading-snug tracking-tight">
                   {service.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{service.description}</p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {service.description}
+                </p>
 
                 <ul className="mt-6 grid gap-2 text-sm">
                   {service.capabilities.map((c) => (

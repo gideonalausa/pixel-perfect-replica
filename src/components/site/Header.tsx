@@ -55,7 +55,12 @@ export function Header() {
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button variant="glass" size="icon" className="rounded-full lg:hidden" aria-label="Open menu">
+              <Button
+                variant="glass"
+                size="icon"
+                className="rounded-full lg:hidden"
+                aria-label="Open menu"
+              >
                 <Menu />
               </Button>
             </SheetTrigger>

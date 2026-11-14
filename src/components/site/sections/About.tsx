@@ -5,14 +5,26 @@ import { Reveal } from "@/components/site/Reveal";
 import { profile } from "@/content/site";
 
 const principles = [
-  { icon: Briefcase, title: "Business-focused solutions", text: "Every build starts from a real operational problem." },
-  { icon: ShieldCheck, title: "Reliable, scalable automation", text: "Error handling and monitoring built in from day one." },
-  { icon: Headset, title: "Clear communication and support", text: "Plain-language updates and a proper handover." },
+  {
+    icon: Briefcase,
+    title: "Business-focused solutions",
+    text: "Every build starts from a real operational problem.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Reliable, scalable automation",
+    text: "Error handling and monitoring built in from day one.",
+  },
+  {
+    icon: Headset,
+    title: "Clear communication and support",
+    text: "Plain-language updates and a proper handover.",
+  },
 ];
 
 export function About() {
   return (
-    <section id="about" className="relative py-24 sm:py-32">
+    <section id="about" className="relative py-16 sm:py-24 lg:py-32">
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
         <Reveal>
           <Portrait />
@@ -25,7 +37,10 @@ export function About() {
               Building Smarter Systems for Modern Businesses.
             </h2>
           </Reveal>
-          <Reveal delay={100} className="mt-7 space-y-5 text-base leading-relaxed text-muted-foreground sm:text-[1.05rem]">
+          <Reveal
+            delay={100}
+            className="mt-7 space-y-5 text-base leading-relaxed text-muted-foreground sm:text-[1.05rem]"
+          >
             <p>
               I'm Gideon, an AI automation specialist passionate about helping businesses simplify
               operations through technology.
@@ -52,7 +67,9 @@ export function About() {
                 <div className="flex size-10 items-center justify-center rounded-xl bg-primary/15 text-primary">
                   <p.icon className="size-5" aria-hidden="true" />
                 </div>
-                <h3 className="mt-4 font-display text-[0.95rem] font-semibold leading-snug">{p.title}</h3>
+                <h3 className="mt-4 font-display text-[0.95rem] font-semibold leading-snug">
+                  {p.title}
+                </h3>
                 <p className="mt-1.5 text-sm text-muted-foreground">{p.text}</p>
               </Reveal>
             ))}
@@ -65,15 +82,18 @@ export function About() {
 
 function Portrait() {
   return (
-    <div className="relative mx-auto max-w-md">
+    <div className="relative mx-auto max-w-xs sm:max-w-sm lg:max-w-md">
       <div className="glow-orb inset-10 bg-primary/25" aria-hidden="true" />
       <div className="surface-card relative aspect-[4/5] overflow-hidden rounded-[2rem] p-2">
         {profile.portraitUrl ? (
           <img
             src={profile.portraitUrl}
             alt={`Portrait of ${profile.name}`}
-            className="size-full rounded-[1.6rem] object-cover"
+            width={960}
+            height={1200}
+            className="size-full rounded-[1.6rem] object-cover object-top"
             loading="lazy"
+            decoding="async"
           />
         ) : (
           <div className="relative flex size-full flex-col items-center justify-center overflow-hidden rounded-[1.6rem] bg-surface">
@@ -86,8 +106,10 @@ function Portrait() {
           </div>
         )}
       </div>
-      <div className="absolute -right-3 -bottom-5 rounded-2xl border border-border bg-popover/90 px-4 py-3 shadow-soft backdrop-blur sm:-right-8">
-        <p className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground">Focus</p>
+      <div className="absolute right-2 -bottom-5 rounded-2xl border border-border bg-popover/90 px-4 py-3 shadow-soft backdrop-blur sm:-right-8">
+        <p className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground">
+          Focus
+        </p>
         <p className="mt-0.5 text-sm font-medium">AI agents · Workflows · CRM</p>
       </div>
     </div>
