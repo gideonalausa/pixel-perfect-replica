@@ -23,7 +23,7 @@ import {
 import { Braces, CalendarClock, FileText, Workflow, Webhook, Database, Phone } from "lucide-react";
 import type { ComponentType, SVGProps } from "react";
 
-import { extraIcons } from "@/components/brand/extra-icons";
+import { extraIcons, extraShapes } from "@/components/brand/extra-icons";
 import { cn } from "@/lib/utils";
 
 type SimpleIcon = { path: string; title: string };
@@ -56,6 +56,12 @@ const brandIcons: Record<string, SimpleIcon> = {
   zoho: siZoho,
 };
 
+const brandShapes: Record<string, { viewBox: string; paths: string[] }> = {
+  vapi: extraShapes.vapi,
+  "retell ai": extraShapes.retell,
+  apify: extraShapes.apify,
+};
+
 const genericIcons: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
   "rest apis": Braces,
   apis: Braces,
@@ -77,6 +83,16 @@ export function ToolIcon({ name, className }: { name: string; className?: string
     return (
       <svg viewBox="0 0 24 24" className={cn("size-5", className)} aria-hidden="true">
         <path d={brand.path} fill="currentColor" />
+      </svg>
+    );
+  }
+  const shape = brandShapes[key];
+  if (shape) {
+    return (
+      <svg viewBox={shape.viewBox} className={cn("size-5", className)} aria-hidden="true">
+        {shape.paths.map((d) => (
+          <path key={d.slice(0, 24)} d={d} fill="currentColor" />
+        ))}
       </svg>
     );
   }
