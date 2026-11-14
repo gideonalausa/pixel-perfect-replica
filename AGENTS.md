@@ -28,3 +28,11 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- All editable site content (profile, links, services, projects and their status, tech stack, testimonials) lives in `src/content/site.ts`; components only render it — so the owner can update the site in one place.
+- Home is one scrolling page with section anchors (`/#about`, `/#services`, …) because the brief asks for scroll-to navigation; each project has its own case-study route at `/projects/$slug`.
+- Optional content (links, screenshots, demo video, results, testimonials) is hidden while empty — never show placeholder or invented data.
+- Contact inquiries are inserted from the browser into `project_inquiries` (insert-only for anon, no read access); validation lives in `src/lib/inquiry.ts` and is covered by `src/test/inquiry.test.ts`.
+- Tool logos come from `simple-icons` via `ToolIcon`; tools without an available logo fall back to a monogram or a generic icon.

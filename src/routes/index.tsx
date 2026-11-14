@@ -1,23 +1,59 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// The home route ships no og:image, so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import { Footer } from "@/components/site/Footer";
+import { Header } from "@/components/site/Header";
+import { About } from "@/components/site/sections/About";
+import { Contact } from "@/components/site/sections/Contact";
+import { CtaBand } from "@/components/site/sections/CtaBand";
+import { Hero } from "@/components/site/sections/Hero";
+import { Process } from "@/components/site/sections/Process";
+import { Projects } from "@/components/site/sections/Projects";
+import { Services } from "@/components/site/sections/Services";
+import { TechStack } from "@/components/site/sections/TechStack";
+import { Testimonials } from "@/components/site/sections/Testimonials";
+import { WhyMe } from "@/components/site/sections/WhyMe";
+
+const title = "Gideon Alausa — AI Automation Developer & AI Agent Builder";
+const description =
+  "I build AI voice agents, chatbots, CRM integrations, lead generation systems and custom business automations with n8n, Make.com, Zapier, OpenAI and Vapi.";
+
 export const Route = createFileRoute("/")({
+  validateSearch: (search: Record<string, unknown>): { service?: string } => {
+    const service = search["service"];
+    return typeof service === "string" && service ? { service: service.slice(0, 120) } : {};
+  },
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <Header />
+      <main>
+        <Hero />
+        <About />
+        <Services />
+        <Projects />
+        <TechStack />
+        <Process />
+        <WhyMe />
+        <Testimonials />
+        <CtaBand />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 }
