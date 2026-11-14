@@ -13,12 +13,12 @@ export function Monogram({ className }: { className?: string }) {
     <svg viewBox="0 0 64 64" className={cn("size-9", className)} aria-hidden="true">
       <defs>
         <linearGradient id={id} x1="10" y1="10" x2="54" y2="54" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="var(--cyan)" />
-          <stop offset="0.55" stopColor="var(--primary)" />
-          <stop offset="1" stopColor="var(--violet)" />
+          <stop offset="0" stopColor="#5ee0f5" />
+          <stop offset="0.55" stopColor="#3b8cff" />
+          <stop offset="1" stopColor="#9a6bff" />
         </linearGradient>
       </defs>
-      <rect width="64" height="64" rx="16" fill="var(--surface-raised)" />
+      <rect width="64" height="64" rx="16" fill="var(--brand-ink)" />
       <rect
         x="1"
         y="1"
@@ -26,7 +26,7 @@ export function Monogram({ className }: { className?: string }) {
         height="62"
         rx="15"
         fill="none"
-        stroke="var(--foreground)"
+        stroke="#ffffff"
         strokeOpacity="0.08"
         strokeWidth="2"
       />
@@ -38,7 +38,7 @@ export function Monogram({ className }: { className?: string }) {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <circle cx="47.57" cy="14.88" r="3.4" fill="var(--cyan)" />
+      <circle cx="47.57" cy="14.88" r="3.4" fill="#5ee0f5" />
     </svg>
   );
 }

@@ -80,7 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "theme-color", content: "#0d1424" },
+      { name: "theme-color", content: "#f8fafd" },
       { title: "Gideon Alausa — AI Automation Developer" },
       {
         name: "description",
