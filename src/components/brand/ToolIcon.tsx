@@ -20,7 +20,7 @@ import {
   siZapier,
   siZoho,
 } from "simple-icons";
-import { Braces, CalendarClock, FileText, Workflow, Webhook, Database, Phone } from "lucide-react";
+import { Braces, CalendarClock, Workflow, Webhook, Database, Phone } from "lucide-react";
 import type { ComponentType, SVGProps } from "react";
 
 import { extraIcons, extraShapes } from "@/components/brand/extra-icons";
@@ -62,11 +62,17 @@ const brandShapes: Record<string, { viewBox: string; paths: string[] }> = {
   apify: extraShapes.apify,
 };
 
+/** Logos supplied as image files; drawn as a mask so they take the surrounding text colour. */
+const brandMasks: Record<string, string> = {
+  apollo: "/images/tools/apollo.png",
+  gohighlevel: "/images/tools/gohighlevel.png",
+  "pdf.co": "/images/tools/pdfco.png",
+};
+
 const genericIcons: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
   "rest apis": Braces,
   apis: Braces,
   webhooks: Webhook,
-  "pdf.co": FileText,
   "automation tools": Workflow,
   "automation workflows": Workflow,
   "calendar apis": CalendarClock,
@@ -94,6 +100,25 @@ export function ToolIcon({ name, className }: { name: string; className?: string
           <path key={d.slice(0, 24)} d={d} fill="currentColor" />
         ))}
       </svg>
+    );
+  }
+  const mask = brandMasks[key];
+  if (mask) {
+    return (
+      <span
+        aria-hidden="true"
+        className={cn("inline-block size-5 bg-current", className)}
+        style={{
+          maskImage: `url(${mask})`,
+          WebkitMaskImage: `url(${mask})`,
+          maskSize: "contain",
+          WebkitMaskSize: "contain",
+          maskRepeat: "no-repeat",
+          WebkitMaskRepeat: "no-repeat",
+          maskPosition: "center",
+          WebkitMaskPosition: "center",
+        }}
+      />
     );
   }
   const Generic = genericIcons[key];
